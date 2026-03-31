@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2sdx66bjuvd6"]
+
+[ext_resource type="Texture2D" uid="uid://cm8r3vadh875w" path="res://goonidle.png" id="1_nc5wp"]
+[ext_resource type="Script" path="res://basic_goon.gd" id="1_y80h5"]
+
+[node name="BasicGoon" type="Node2D"]
+script = ExtResource("1_y80h5")
+
+[node name="GoonSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -120)
+texture = ExtResource("1_nc5wp")

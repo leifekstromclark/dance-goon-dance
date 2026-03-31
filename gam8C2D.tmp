@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://818g2mxcpq0x"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_dydmc"]
+[ext_resource type="Script" path="res://scripts/music_manager.gd" id="2_6yaxd"]
+[ext_resource type="Resource" uid="uid://cbh6sp5lj5146" path="res://music/tutorial4.tres" id="2_fhoub"]
+[ext_resource type="Script" path="res://scripts/throbber.gd" id="2_r33x0"]
+[ext_resource type="Texture2D" uid="uid://yj87ygj30u8n" path="res://uiassets/A.png" id="4_j1r70"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_dydmc")
+tutorial_4 = ExtResource("2_fhoub")
+
+[node name="Throbber" type="Node2D" parent="." node_paths=PackedStringArray("music_manager")]
+position = Vector2(527, 335)
+script = ExtResource("2_r33x0")
+throb_time = 0.1
+music_manager = NodePath("../MusicManager")
+
+[node name="A" type="Sprite2D" parent="Throbber"]
+texture = ExtResource("4_j1r70")
+
+[node name="MusicManager" type="Node" parent="."]
+script = ExtResource("2_6yaxd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
+
+[node name="Player" type="Node2D" parent="."]
+
+[connection signal="finished" from="MusicManager/AudioStreamPlayer" to="MusicManager" method="_on_audio_stream_player_finished"]
