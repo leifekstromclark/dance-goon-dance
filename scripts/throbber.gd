@@ -12,6 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	# throb, centered on beats
 	if abs(music_manager.get_error()) <= throb_time / 2:
 		scale = Vector2(horizontal_throb, vertical_throb)
 	else:

@@ -2,8 +2,8 @@ extends Control
 class_name ComboMeter
 
 var images: Array
-var level: int = 0
-var progress: int = 30
+var level: int = 0 # 0=D,1=C,2=B,etc.
+var progress: int = 30 # percent progress towards next combo level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,12 +14,14 @@ func _ready() -> void:
 	images.push_back([preload("res://uiassets/S.png"), preload("res://uiassets/Sshadow.png"), preload("res://uiassets/Smeter.png")])
 	$TextureProgressBar.value = progress
 	update_textures()
-	
+
+# this needs to be called every time the combo level changes
 func update_textures() -> void:
 	$TextureProgressBar.texture_progress = images[level][2]
 	$Throbber/Letter.texture = images[level][0]
 	$Throbber/LetterBG.texture = images[level][1]
-	
+
+# this should be called whenever the player loses the beat
 func reset() -> void:
 	if progress > 0:
 		$ComboLostSound.play()
@@ -27,11 +29,13 @@ func reset() -> void:
 	if level == images.size() - 1:
 		set_level(images.size() - 2)
 	$TextureProgressBar.value = progress
-	
+
+# manually set the combo level
 func set_level(new_level: int) -> void:
 	level = new_level
 	update_textures()
-	
+
+# add points towards the next combo level. Extra points will overflow to the next. 100 points needed to progress. You can change this value by changing the properties of the TextureProgressBar
 func increment(n: int) -> void:
 	progress += n
 	if progress > 99 && level < images.size() - 1:
