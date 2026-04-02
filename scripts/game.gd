@@ -53,15 +53,10 @@ func get_player_line_pos() -> int:
 
 # add a goon to the dance line, all ready to go
 func spawn_basic_goon(line_pos: int) -> void:
-	enemies.push_back(basic_goon_scene.instantiate())	
+	enemies.push_back(basic_goon_scene.instantiate())
 	enemies.back().game = self
 	enemies.back().line_pos = line_pos
 	add_child(enemies.back())
-	
-# get distance from player in line_pos
-func distance_check(line_pos: int) -> int:
-	return abs($Player.line_pos - line_pos)
-	
 
 # potentially temporary. destroy the goon at position line pos
 func player_attack(line_pos: int) -> void:
@@ -80,10 +75,10 @@ func _ready() -> void:
 	$Camera2D.target = real_xpos($Player.line_pos)
 	$Camera2D.position.x = real_xpos($Player.line_pos)
 	basic_goon_scene = preload("res://basic_goon.tscn")
-	#spawn_basic_goon(3)
-	#spawn_basic_goon(-3)
+	spawn_basic_goon(3)
+	spawn_basic_goon(-3)
 	spawn_basic_goon(6)
-	#spawn_basic_goon(-6)
+	spawn_basic_goon(-6)
 
 
 # Called once every frame.

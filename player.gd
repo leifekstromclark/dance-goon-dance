@@ -10,10 +10,6 @@ extends Node2D
 @export var pitch_variation: float = 0.1
 @export var volume_variation: float = 0.2
 
-@export var duck: bool = false
-@export var jump: bool = false
-@export var reset: bool = false # exported var that tells enemies when game has a beat because I can't find your thing rn bruh
-
 var single_frame_reset_timer: float = 0 # timer for ending animations with onlly one frame
 var next_step_right = true # is the next step right or left foot?
 
@@ -63,14 +59,12 @@ func dodge_up():
 	$AnimatedSprite2D.animation = &"jump"
 	state = PlayerState.JUMP
 	single_frame_reset_timer = 0.3 # purely visual
-	jump = true
 	play_random_sound(dodge_sounds)
 
 func dodge_down():
 	$AnimatedSprite2D.animation = &"duck"
 	state = PlayerState.DUCK
 	single_frame_reset_timer = 0.3 # purely visual
-	duck = false
 	play_random_sound(dodge_sounds)
 
 func move(dir: int) -> void:
@@ -111,5 +105,3 @@ func _on_game_rising_edge() -> void:
 	if state != PlayerState.NEUTRAL:
 		state = PlayerState.NEUTRAL
 		reset_anim()
-	jump = false
-	duck = false
