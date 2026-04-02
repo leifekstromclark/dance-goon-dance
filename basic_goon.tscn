@@ -1,11 +1,77 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2sdx66bjuvd6"]
+[gd_scene format=3 uid="uid://b2sdx66bjuvd6"]
 
-[ext_resource type="Texture2D" uid="uid://cm8r3vadh875w" path="res://goonidle.png" id="1_nc5wp"]
-[ext_resource type="Script" path="res://basic_goon.gd" id="1_y80h5"]
+[ext_resource type="Script" uid="uid://bjmk6k0dhvfia" path="res://basic_goon.gd" id="1_y80h5"]
+[ext_resource type="Texture2D" uid="uid://501kum6dswno" path="res://Prototype Enemy spritesheet.png" id="2_vf8at"]
 
-[node name="BasicGoon" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxxok"]
+atlas = ExtResource("2_vf8at")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chqj5"]
+atlas = ExtResource("2_vf8at")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b08m1"]
+atlas = ExtResource("2_vf8at")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl3pj"]
+atlas = ExtResource("2_vf8at")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2jk6"]
+atlas = ExtResource("2_vf8at")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h637c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxxok")
+}],
+"loop": true,
+"name": &"Attack High",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chqj5")
+}],
+"loop": true,
+"name": &"Attack Low",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b08m1")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl3pj")
+}],
+"loop": true,
+"name": &"Spotted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2jk6")
+}],
+"loop": true,
+"name": &"Telegraph",
+"speed": 5.0
+}]
+
+[node name="BasicGoon" type="Node2D" unique_id=2097038499]
 script = ExtResource("1_y80h5")
 
-[node name="GoonSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -120)
-texture = ExtResource("1_nc5wp")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1347889142]
+position = Vector2(11, -107)
+scale = Vector2(0.5009766, 0.5009766)
+sprite_frames = SubResource("SpriteFrames_h637c")
+animation = &"Idle"
+autoplay = "Idle"

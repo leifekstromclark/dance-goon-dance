@@ -13,7 +13,7 @@ var beat_num: int # index of current beat starting at 0
 var first_beat # true before first beat. false after
 
 var current_song: AudioWrapper
-var beat_length: float # how long is 1 beat (in seconds)
+@export var beat_length: float # how long is 1 beat (in seconds)
 var beat_start: float # at what time in the audio file was the last beat (in seconds)
 
 

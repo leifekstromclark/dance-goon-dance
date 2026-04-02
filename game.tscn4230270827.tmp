@@ -388,5 +388,4 @@ texture_progress = ExtResource("9_blvhv")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="rising_edge" from="." to="Player" method="_on_game_rising_edge"]
-[connection signal="beat" from="MusicManager" to="Player" method="_on_music_manager_beat"]
 [connection signal="finished" from="MusicManager/AudioStreamPlayer" to="MusicManager" method="_on_audio_stream_player_finished"]
