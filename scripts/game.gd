@@ -27,6 +27,8 @@ var line_y = 650 # the y position of objects on the dance line in pixels
 
 var basic_goon_scene: PackedScene # prefab for instantiating basic goons
 
+var damage_sound: AudioStream
+
 # get pixel x-position from line position
 func real_xpos(line_pos: int) -> float:
 	return line_offset + line_cell_size * line_pos
@@ -51,15 +53,20 @@ func is_attackable(line_pos: int) -> bool:
 func get_player_line_pos() -> int:
 	return $Player.line_pos
 
+func get_player_state() -> Player.PlayerState:
+	return $Player.state
+
 # add a goon to the dance line, all ready to go
 func spawn_basic_goon(line_pos: int) -> void:
 	enemies.push_back(basic_goon_scene.instantiate())
 	enemies.back().game = self
 	enemies.back().line_pos = line_pos
+	$MusicManager.beat.connect(enemies.back()._on_music_manager_beat)
+	falling_edge.connect(enemies.back()._on_falling_edge)
 	add_child(enemies.back())
 
 # potentially temporary. destroy the goon at position line pos
-func player_attack(line_pos: int) -> void:
+func hit_goon(line_pos: int) -> void:
 	print(enemies)
 	for i in range(enemies.size()): # TS is highkey inefficient but idgaf
 		if enemies[i].line_pos == line_pos:
@@ -68,6 +75,15 @@ func player_attack(line_pos: int) -> void:
 			break
 	combo_meter.increment(50)
 
+func hit_player() -> void:
+	if combo_meter.level > 0 && combo_meter.level < combo_meter.get_max_level():
+		combo_meter.set_level(combo_meter.level - 1)
+	else:
+		get_tree().change_scene_to_file("res://title.tscn")
+	combo_meter.reset(true)
+	$GameSound.stream = damage_sound
+	$GameSound.play()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$MusicManager.play_song(tutorial_4)
@@ -75,9 +91,10 @@ func _ready() -> void:
 	$Camera2D.target = real_xpos($Player.line_pos)
 	$Camera2D.position.x = real_xpos($Player.line_pos)
 	basic_goon_scene = preload("res://basic_goon.tscn")
+	damage_sound = preload("res://sounds/minecraftoof.mp3")
 	spawn_basic_goon(3)
-	spawn_basic_goon(-3)
 	spawn_basic_goon(6)
+	spawn_basic_goon(-3)
 	spawn_basic_goon(-6)
 
 
@@ -90,11 +107,6 @@ func _process(delta: float) -> void:
 		
 	elif in_input_window && abs($MusicManager.get_error()) > input_error_tolerance: #falling edge
 		in_input_window = false
-		
-		# RESOLVE the repercussions of enemy actions here
-		# (player should have done their input by now)
-		# some animations and sound effects of the enemy actions can and should be played directly on beat - probably from the enemy's script
-		
 		if !got_input: # missed a beat
 			combo_meter.reset()
 		got_input = false
@@ -119,3 +131,13 @@ func _input(event: InputEvent) -> void:
 				$Player.dodge_down()
 		else: # womp womp
 			combo_meter.reset()
+
+
+func _on_music_manager_beat(n: int) -> void:
+	if n % 8 == 7:
+		var spawn_pos_1 = get_player_line_pos() - 6 + randi() % 3
+		var spawn_pos_2 = get_player_line_pos() + 6 - randi() % 3
+		if !is_obstructed(spawn_pos_1):
+			spawn_basic_goon(spawn_pos_1)
+		if !is_obstructed(spawn_pos_2):
+			spawn_basic_goon(spawn_pos_2)

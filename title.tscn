@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://c1x7khtt5ii51"]
+
+[ext_resource type="Script" uid="uid://ckb464u2qreiy" path="res://scripts/title.gd" id="1_mom7w"]
+[ext_resource type="Script" uid="uid://dmet47378c8bm" path="res://scripts/throbber.gd" id="1_y7k74"]
+[ext_resource type="Resource" uid="uid://scwohgp5s3a2" path="res://music/tutorial3.tres" id="2_7lgly"]
+[ext_resource type="Texture2D" uid="uid://mfykfsn38td0" path="res://uiassets/dgdtitleshadow.png" id="2_kpexm"]
+[ext_resource type="Texture2D" uid="uid://b1bho2vr1im5w" path="res://uiassets/dgdtitle.png" id="3_3xoar"]
+[ext_resource type="Script" uid="uid://cy6r2vm3pauow" path="res://scripts/music_manager.gd" id="4_3xoar"]
+
+[node name="Title" type="Control" unique_id=365744329]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mom7w")
+tutorial3 = ExtResource("2_7lgly")
+
+[node name="PlayButton" type="Button" parent="." unique_id=1571501807]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = 87.0
+offset_right = -2.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "PLAY"
+
+[node name="Throbber" type="Control" parent="." unique_id=1741506303 node_paths=PackedStringArray("music_manager")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y7k74")
+horizontal_throb = 1.01
+music_manager = NodePath("../MusicManager")
+
+[node name="TextureRect2" type="TextureRect" parent="Throbber" unique_id=2029173266]
+layout_mode = 1
+offset_left = -507.0
+offset_top = -115.00001
+offset_right = 979.0
+offset_bottom = 61.999992
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_kpexm")
+
+[node name="TextureRect" type="TextureRect" parent="Throbber" unique_id=1727434327]
+layout_mode = 1
+offset_left = -507.0
+offset_top = -115.00001
+offset_right = 979.0
+offset_bottom = 61.999992
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_3xoar")
+
+[node name="MusicManager" type="Node" parent="." unique_id=548504914]
+script = ExtResource("4_3xoar")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager" unique_id=1959617501]
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="finished" from="MusicManager/AudioStreamPlayer" to="MusicManager" method="_on_audio_stream_player_finished"]

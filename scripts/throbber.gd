@@ -1,6 +1,6 @@
 extends Control
 
-@export var throb_time: float = 0.05
+@export var throb_time: float = 0.2
 @export var vertical_throb: float = 1.1
 @export var horizontal_throb: float = 1.1
 @export var music_manager: MusicManager
