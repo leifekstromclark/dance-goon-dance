@@ -5,11 +5,11 @@
 [ext_resource type="Resource" uid="uid://scwohgp5s3a2" path="res://music/tutorial3.tres" id="2_7lgly"]
 [ext_resource type="Texture2D" uid="uid://mfykfsn38td0" path="res://uiassets/dgdtitleshadow.png" id="2_kpexm"]
 [ext_resource type="Texture2D" uid="uid://b1bho2vr1im5w" path="res://uiassets/dgdtitle.png" id="3_3xoar"]
-[ext_resource type="Theme" uid="uid://c014h4lw5xkhl" path="res://uiassets/button.theme" id="3_0824t"]
-[ext_resource type="Texture2D" uid="uid://b54dpc782ukvn" path="res://uiassets/dgdtitlebg.png" id="3_jil77"]
+[ext_resource type="Theme" uid="uid://c014h4lw5xkhl" path="res://uiassets/theme.theme" id="3_0824t"]
 [ext_resource type="Script" uid="uid://cy6r2vm3pauow" path="res://scripts/music_manager.gd" id="4_3xoar"]
-[ext_resource type="Script" uid="uid://nslultul0w2n" path="res://scripts/button.gd" id="4_nuqgq"]
-[ext_resource type="AudioStream" uid="uid://df1ptro4h31fb" path="res://sounds/808Snare.mp3" id="5_lx2ly"]
+[ext_resource type="Script" uid="uid://nslultul0w2n" path="res://button.gd" id="4_nuqgq"]
+
+[sub_resource type="Theme" id="Theme_0824t"]
 
 [node name="Title" type="Control" unique_id=365744329]
 layout_mode = 3
@@ -21,40 +21,37 @@ grow_vertical = 2
 script = ExtResource("1_mom7w")
 tutorial3 = ExtResource("2_7lgly")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=2109649361]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("3_jil77")
-
 [node name="PlayButton" type="Button" parent="." unique_id=1571501807]
-layout_mode = 1
-offset_left = 857.0
-offset_top = 564.0
-offset_right = 1209.0
-offset_bottom = 774.0
-scale = Vector2(0.5, 0.5)
-theme = ExtResource("3_0824t")
-script = ExtResource("4_nuqgq")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PlayButton" unique_id=609688265]
-stream = ExtResource("5_lx2ly")
-
-[node name="Label" type="Label" parent="PlayButton" unique_id=785267321]
-modulate = Color(0.21918201, 0.06334207, 0.068046056, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -41.0
-offset_right = 174.0
-offset_bottom = 69.0
+offset_left = -96.0
+offset_top = 15.0
+offset_right = 256.0
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_0824t")
+script = ExtResource("4_nuqgq")
+
+[node name="Label" type="Label" parent="PlayButton" unique_id=785267321]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -37.0
+offset_right = 91.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0824t")
 text = "Play"
 
 [node name="Throbber" type="Control" parent="." unique_id=1741506303 node_paths=PackedStringArray("music_manager")]
@@ -64,9 +61,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -54.0
-offset_right = 40.0
-offset_bottom = -14.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y7k74")
@@ -75,30 +73,20 @@ music_manager = NodePath("../MusicManager")
 
 [node name="TextureRect2" type="TextureRect" parent="Throbber" unique_id=2029173266]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -743.0
-offset_top = -177.0
-offset_right = 743.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_left = -507.0
+offset_top = -115.00001
+offset_right = 979.0
+offset_bottom = 61.999992
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_kpexm")
 
 [node name="TextureRect" type="TextureRect" parent="Throbber" unique_id=1727434327]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -743.0
-offset_top = -177.0
-offset_right = 743.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_left = -507.0
+offset_top = -115.00001
+offset_right = 979.0
+offset_bottom = 61.999992
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_3xoar")
 
 [node name="MusicManager" type="Node" parent="." unique_id=548504914]
@@ -106,7 +94,5 @@ script = ExtResource("4_3xoar")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager" unique_id=1959617501]
 
-[connection signal="button_down" from="PlayButton" to="PlayButton" method="_on_button_down"]
-[connection signal="button_up" from="PlayButton" to="PlayButton" method="_on_button_up"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="finished" from="MusicManager/AudioStreamPlayer" to="MusicManager" method="_on_audio_stream_player_finished"]

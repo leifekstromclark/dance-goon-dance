@@ -21,9 +21,9 @@ enum LevelEvent {SPAWN, WAIT_BEATS, WAIT_KILL, SOUND, DIALOGUE}
 # contains all the enemies on the line
 var enemies: Array
 
-var line_cell_size = 120 # how many pixels is one step
-var line_offset = 60 # how many pixels is line position 0 offset from pixel position 0
-var line_y = 650 # the y position of objects on the dance line in pixels
+var line_cell_size = 388 / 2 # how many pixels is one step
+var line_offset = line_cell_size / 2 # how many pixels is line position 0 offset from pixel position 0
+var line_y = 980 # the y position of objects on the dance line in pixels
 
 var basic_goon_scene: PackedScene # prefab for instantiating basic goons
 
@@ -61,24 +61,25 @@ func spawn_basic_goon(line_pos: int) -> void:
 	enemies.push_back(basic_goon_scene.instantiate())
 	enemies.back().game = self
 	enemies.back().line_pos = line_pos
-	$MusicManager.beat.connect(enemies.back()._on_music_manager_beat)
-	falling_edge.connect(enemies.back()._on_falling_edge)
+	enemies.back().music_manager = $MusicManager
 	add_child(enemies.back())
 
 # potentially temporary. destroy the goon at position line pos
 func hit_goon(line_pos: int) -> void:
-	print(enemies)
 	for i in range(enemies.size()): # TS is highkey inefficient but idgaf
 		if enemies[i].line_pos == line_pos:
-			enemies[i].queue_free()
-			enemies.remove_at(i)
+			if enemies[i].damaged || combo_meter.level == combo_meter.get_max_level():
+				enemies[i].die()
+				enemies.remove_at(i)
+				combo_meter.increment(50)
+			else:
+				enemies[i].damage()
 			break
-	combo_meter.increment(50)
 
 func hit_player() -> void:
 	if combo_meter.level > 0 && combo_meter.level < combo_meter.get_max_level():
 		combo_meter.set_level(combo_meter.level - 1)
-	else:
+	elif combo_meter.level == 0:
 		get_tree().change_scene_to_file("res://title.tscn")
 	combo_meter.reset(true)
 	$GameSound.stream = damage_sound

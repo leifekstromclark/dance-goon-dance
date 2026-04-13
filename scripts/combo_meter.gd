@@ -1,6 +1,8 @@
 extends Control
 class_name ComboMeter
 
+signal change_level(n: int)
+
 var images: Array
 var level: int = 2 # 0=D,1=C,2=B,etc.
 var progress: int = 0 # percent progress towards next combo level
@@ -37,13 +39,17 @@ func get_max_level() -> int:
 func set_level(new_level: int) -> void:
 	level = new_level
 	update_textures()
+	if level == 0:
+		$LosingGroove.show()
+	else:
+		$LosingGroove.hide()
+	change_level.emit(level)
 
 # add points towards the next combo level. Extra points will overflow to the next. 100 points needed to progress. You can change this value by changing the properties of the TextureProgressBar
 func increment(n: int) -> void:
 	progress += n
 	if progress > 99 && level < images.size() - 1:
-		level += 1
-		update_textures()
+		set_level(level + 1)
 		if level < images.size() - 1:
 			progress -= 99
 	$TextureProgressBar.value = progress
