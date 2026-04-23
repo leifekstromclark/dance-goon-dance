@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BanquetLevel" format=3 uid="uid://nh3l33yasant"]
+
+[ext_resource type="PackedScene" uid="uid://bi8f5ftma7tjg" path="res://levels/banquet_background.tscn" id="1_eadl1"]
+[ext_resource type="Script" uid="uid://btni4den78xl0" path="res://levels/banquet_level.gd" id="1_m4oh7"]
+[ext_resource type="Resource" uid="uid://cqtkjffuyrx4t" path="res://music/groovenotgoon2.tres" id="2_o0l4i"]
+
+[resource]
+script = ExtResource("1_m4oh7")
+initial_song = ExtResource("2_o0l4i")
+background = ExtResource("1_eadl1")
+player_start_pos = -1
+line_y = 997
+metadata/_custom_type_script = "uid://btni4den78xl0"

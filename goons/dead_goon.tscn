@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://7grlpp2f876k"]
+
+[ext_resource type="Script" uid="uid://cdoj3vrl85kte" path="res://scripts/dead_goon.gd" id="1_y1rrd"]
+
+[node name="DeadGoon" type="Node2D" unique_id=1827735342]
+z_index = 3
+script = ExtResource("1_y1rrd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=33647589]
+position = Vector2(-4, -154)
+scale = Vector2(0.6, 0.6)

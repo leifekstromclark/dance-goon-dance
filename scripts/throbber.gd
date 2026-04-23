@@ -5,6 +5,9 @@ extends Control
 @export var horizontal_throb: float = 1.1
 @export var music_manager: MusicManager
 
+func setup(mm: MusicManager) -> void:
+	music_manager = mm
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

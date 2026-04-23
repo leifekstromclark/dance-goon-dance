@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b1l5g6xcvqru7"]
+
+[ext_resource type="Texture2D" uid="uid://itcgpfx2umw6" path="res://levels/tutorialbg/castleback.png" id="1_4g04i"]
+[ext_resource type="Script" uid="uid://cymtdk5hvsye" path="res://levels/castle.gd" id="1_jrwkf"]
+[ext_resource type="Texture2D" uid="uid://bpuvcw8482hup" path="res://levels/tutorialbg/castlemain.png" id="2_jrwkf"]
+[ext_resource type="Texture2D" uid="uid://d0e2honbc0ai1" path="res://levels/tutorialbg/pinkparty.png" id="3_e402x"]
+[ext_resource type="Script" uid="uid://dmet47378c8bm" path="res://scripts/throbber.gd" id="4_e402x"]
+[ext_resource type="Texture2D" uid="uid://cvmkv6ikdl0rc" path="res://levels/tutorialbg/castlefront.png" id="4_to3ur"]
+
+[node name="Castle" type="Node2D" unique_id=423233063]
+script = ExtResource("1_jrwkf")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=158189136]
+z_index = 2
+offset_left = -158.0
+offset_top = 18.0
+offset_right = 304.0
+offset_bottom = 1098.0
+texture = ExtResource("2_jrwkf")
+
+[node name="Throbber2" type="Control" parent="." unique_id=1159363184]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 84.0
+offset_top = 976.0
+offset_right = 124.0
+offset_bottom = 1016.0
+script = ExtResource("4_e402x")
+vertical_throb = 0.99
+horizontal_throb = 1.01
+
+[node name="TextureRect" type="TextureRect" parent="Throbber2" unique_id=187145997]
+z_index = 1
+layout_mode = 0
+offset_left = -242.0
+offset_top = -956.0
+offset_right = 220.0
+offset_bottom = 124.0
+texture = ExtResource("1_4g04i")
+
+[node name="TextureRect2" type="TextureRect" parent="Throbber2" unique_id=1484924538]
+z_index = 3
+layout_mode = 0
+offset_left = -242.0
+offset_top = -960.0
+offset_right = 220.0
+offset_bottom = 120.0
+texture = ExtResource("4_to3ur")
+
+[node name="Throbber" type="Control" parent="." unique_id=635631276]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 105.0
+offset_top = 864.0
+offset_right = 145.0
+offset_bottom = 904.0
+script = ExtResource("4_e402x")
+
+[node name="TextureRect2" type="TextureRect" parent="Throbber" unique_id=728001129]
+layout_mode = 0
+offset_left = -320.0
+offset_top = -376.0
+offset_right = 201.0
+offset_bottom = 251.0
+texture = ExtResource("3_e402x")

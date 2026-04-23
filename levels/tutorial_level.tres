@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TutorialLevel" format=3 uid="uid://bcllofyd8p0qn"]
+
+[ext_resource type="PackedScene" uid="uid://cryymrxn0pg5t" path="res://levels/tutorial_background.tscn" id="1_k8web"]
+[ext_resource type="Resource" uid="uid://dpwoxaqty0ren" path="res://music/tutorial1.tres" id="2_lbavk"]
+[ext_resource type="Script" uid="uid://dnldxb1w6sria" path="res://levels/tutorial_level.gd" id="3_8jsxm"]
+
+[resource]
+script = ExtResource("3_8jsxm")
+initial_song = ExtResource("2_lbavk")
+background = ExtResource("1_k8web")
+player_start_pos = 1
+line_y = 980
+metadata/_custom_type_script = "uid://dnldxb1w6sria"

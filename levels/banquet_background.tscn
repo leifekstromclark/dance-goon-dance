@@ -1,0 +1,480 @@
+[gd_scene format=3 uid="uid://bi8f5ftma7tjg"]
+
+[ext_resource type="Script" uid="uid://b2gboan346kmy" path="res://levels/banquet_background.gd" id="1_4cyjg"]
+[ext_resource type="Texture2D" uid="uid://b2hj68gj4d3y5" path="res://levels/tutorialbg/background.png" id="2_lwmaj"]
+[ext_resource type="Script" uid="uid://dmet47378c8bm" path="res://scripts/throbber.gd" id="3_usmkp"]
+[ext_resource type="Texture2D" uid="uid://sp4bmjr2h27w" path="res://levels/tutorialbg/moonglow.png" id="4_1oc1n"]
+[ext_resource type="Texture2D" uid="uid://diillby2431pw" path="res://levels/tutorialbg/moon.png" id="5_nvdhq"]
+[ext_resource type="Texture2D" uid="uid://6n2qpulpsk0l" path="res://levels/tutorialbg/blueclouds.png" id="6_okty3"]
+[ext_resource type="Script" uid="uid://cc6cxd3gnhkvw" path="res://scripts/skewer.gd" id="7_3hk0e"]
+[ext_resource type="Texture2D" uid="uid://fn5tk6cnwrsu" path="res://levels/tutorialbg/backmountains.png" id="8_ooxrv"]
+[ext_resource type="Texture2D" uid="uid://wugrpn8r2hnl" path="res://levels/tutorialbg/middlemountains.png" id="9_l354s"]
+[ext_resource type="Texture2D" uid="uid://dwxwlc5jsnv72" path="res://levels/tutorialbg/whiteclouds.png" id="10_irqps"]
+[ext_resource type="Texture2D" uid="uid://16vt54mb2ala" path="res://levels/tutorialbg/frontmountains.png" id="11_yeo2h"]
+[ext_resource type="Texture2D" uid="uid://b54mv0wpsscqg" path="res://levels/banquetbg/curtain.png" id="12_1fmev"]
+[ext_resource type="Texture2D" uid="uid://bolppiylxaobm" path="res://levels/banquetbg/floor.png" id="12_hli2a"]
+[ext_resource type="Texture2D" uid="uid://dheipcla3e3uq" path="res://levels/banquetbg/lightfixture.png" id="13_m6b0c"]
+[ext_resource type="Script" uid="uid://c1vgwdhio18ff" path="res://scripts/glow.gd" id="13_n8oty"]
+[ext_resource type="Texture2D" uid="uid://bshimdo8wxljd" path="res://levels/banquetbg/table.png" id="13_oadd5"]
+[ext_resource type="Texture2D" uid="uid://dcyhpc3xus1sb" path="res://levels/banquetbg/light.png" id="14_e8xmv"]
+[ext_resource type="Texture2D" uid="uid://b1iosnd8ocjr6" path="res://levels/banquetbg/window.png" id="14_m6b0c"]
+[ext_resource type="Texture2D" uid="uid://5tniw8273jxg" path="res://levels/banquetbg/chairs.png" id="14_um4r3"]
+[ext_resource type="Texture2D" uid="uid://bonisy0loobno" path="res://levels/floor/greenfloor.png" id="16_1jfhi"]
+[ext_resource type="Texture2D" uid="uid://dpq2fkhimrqn" path="res://levels/floor/purplefloor.png" id="17_o28y7"]
+[ext_resource type="Texture2D" uid="uid://d1wcg24qlfbnd" path="res://levels/banquetbg/floorback.png" id="18_lbh60"]
+[ext_resource type="Texture2D" uid="uid://b0ghbagmrsmx5" path="res://levels/banquetbg/caterer.png" id="19_glx2d"]
+[ext_resource type="Texture2D" uid="uid://codmtvj4ebt3g" path="res://levels/banquetbg/floorfront.png" id="19_ls8df"]
+[ext_resource type="Texture2D" uid="uid://bvkjya2rbm2y3" path="res://levels/banquetbg/waiter.png" id="20_ix7xf"]
+
+[node name="banquet_background" type="Node2D" unique_id=1734982633]
+script = ExtResource("1_4cyjg")
+
+[node name="Back" type="Parallax2D" parent="." unique_id=1768763607]
+scroll_scale = Vector2(0, 0)
+
+[node name="Background" type="TextureRect" parent="Back" unique_id=239442548]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_lwmaj")
+
+[node name="Throbber" type="Control" parent="Back" unique_id=1496546289]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 951.0
+offset_top = 257.0
+offset_right = 951.0
+offset_bottom = 257.0
+script = ExtResource("3_usmkp")
+
+[node name="MoonGlow" type="TextureRect" parent="Back/Throbber" unique_id=1436947076]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -257.5
+offset_right = 297.0
+offset_bottom = 257.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_1oc1n")
+
+[node name="Throbber2" type="Control" parent="Back" unique_id=1052608187]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 956.0
+offset_top = 215.0
+offset_right = 956.0
+offset_bottom = 215.0
+script = ExtResource("3_usmkp")
+vertical_throb = 1.01
+horizontal_throb = 1.01
+
+[node name="Moon" type="TextureRect" parent="Back/Throbber2" unique_id=1720114414]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -123.5
+offset_right = 124.0
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_nvdhq")
+
+[node name="BlueClouds" type="TextureRect" parent="Back" unique_id=658778675]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("6_okty3")
+
+[node name="Skewer" type="Node2D" parent="Back" unique_id=1318546528]
+position = Vector2(0, 2160)
+script = ExtResource("7_3hk0e")
+vertical_stretch = 1.01
+skew_intensity = 0.0
+
+[node name="BackMountains" type="TextureRect" parent="Back/Skewer" unique_id=1516229307]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -2160.0
+offset_right = 1920.0
+offset_bottom = -1080.0
+grow_vertical = 0
+texture = ExtResource("8_ooxrv")
+
+[node name="Far" type="Parallax2D" parent="." unique_id=2009688441]
+scroll_scale = Vector2(0.05, 0.05)
+repeat_size = Vector2(3840, 0)
+
+[node name="Skewer" type="Node2D" parent="Far" unique_id=1568769765]
+position = Vector2(0, 1080)
+script = ExtResource("7_3hk0e")
+vertical_stretch = 1.02
+skew_intensity = 0.01
+
+[node name="MiddleMountains" type="TextureRect" parent="Far/Skewer" unique_id=1119689265]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+offset_right = 3840.0
+grow_vertical = 0
+texture = ExtResource("9_l354s")
+stretch_mode = 1
+
+[node name="WhiteClouds" type="TextureRect" parent="Far" unique_id=125542972]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("10_irqps")
+
+[node name="WhiteClouds2" type="TextureRect" parent="Far" unique_id=1499374716]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(-1, 1)
+texture = ExtResource("10_irqps")
+
+[node name="LessFar" type="Parallax2D" parent="." unique_id=965865051]
+scroll_scale = Vector2(0.15, 0.15)
+repeat_size = Vector2(1920, 0)
+
+[node name="Skewer" type="Node2D" parent="LessFar" unique_id=751045720]
+position = Vector2(0, 1080)
+script = ExtResource("7_3hk0e")
+vertical_stretch = 1.05
+skew_intensity = 0.03
+
+[node name="FrontMountains" type="TextureRect" parent="LessFar/Skewer" unique_id=465133152]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+offset_right = 1920.0
+grow_vertical = 0
+texture = ExtResource("11_yeo2h")
+
+[node name="BackWall" type="Parallax2D" parent="." unique_id=1816083575]
+scroll_scale = Vector2(0.6, 0.6)
+repeat_size = Vector2(700, 0)
+repeat_times = 5
+
+[node name="BackWall" type="TextureRect" parent="BackWall" unique_id=158675612]
+offset_right = 700.0
+offset_bottom = 1080.0
+texture = ExtResource("14_m6b0c")
+metadata/_edit_use_anchors_ = true
+
+[node name="Throbber" type="Control" parent="BackWall" unique_id=1865733372]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 702.0
+offset_top = 98.0
+offset_right = 742.0
+offset_bottom = 138.0
+script = ExtResource("3_usmkp")
+vertical_throb = 1.0
+horizontal_throb = 1.01
+
+[node name="Curtain" type="TextureRect" parent="BackWall/Throbber" unique_id=1744604874]
+layout_mode = 0
+offset_left = -320.0
+offset_top = -98.0
+offset_right = 311.0
+offset_bottom = 812.0
+texture = ExtResource("12_1fmev")
+metadata/_edit_use_anchors_ = true
+
+[node name="Lights" type="Parallax2D" parent="." unique_id=356569271]
+z_index = 4
+scroll_scale = Vector2(0.6, 0.6)
+repeat_size = Vector2(1400, 0)
+repeat_times = 3
+
+[node name="LightFixture" type="TextureRect" parent="Lights" unique_id=769108064]
+offset_left = 318.0
+offset_right = 375.0
+offset_bottom = 61.0
+texture = ExtResource("13_m6b0c")
+metadata/_edit_use_anchors_ = true
+
+[node name="Throbber" type="Control" parent="Lights" unique_id=153192672]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 347.0
+offset_top = 49.0
+offset_right = 387.0
+offset_bottom = 89.0
+script = ExtResource("3_usmkp")
+
+[node name="Glow" type="TextureRect" parent="Lights/Throbber" unique_id=490848549]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -14.2
+anchor_right = -1.625
+anchor_bottom = 25.475
+offset_left = 289.0
+offset_top = -49.0
+offset_right = 346.0
+offset_bottom = 12.0
+texture = ExtResource("14_e8xmv")
+script = ExtResource("13_n8oty")
+default_modulate = Color(0.99215686, 0.61960787, 1, 1)
+beat1_modulate = Color(0.6752133, 0.8897486, 0.17766541, 1)
+beat2_modulate = Color(0.90569776, 0.2500977, 0.7101624, 1)
+beat3_modulate = Color(0.6745098, 0.8901961, 0.1764706, 1)
+beat4_modulate = Color(0.90588236, 0.2509804, 0.70980394, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LightFixture2" type="TextureRect" parent="Lights" unique_id=379693622]
+offset_left = 1019.0
+offset_right = 1076.0
+offset_bottom = 61.0
+texture = ExtResource("13_m6b0c")
+
+[node name="Throbber2" type="Control" parent="Lights" unique_id=1463235685]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1048.0
+offset_top = 49.0
+offset_right = 1088.0
+offset_bottom = 89.0
+script = ExtResource("3_usmkp")
+
+[node name="Glow" type="TextureRect" parent="Lights/Throbber2" unique_id=878767916]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -14.2
+anchor_right = -1.625
+anchor_bottom = 25.475
+offset_left = 289.0
+offset_top = -49.0
+offset_right = 346.0
+offset_bottom = 12.0
+texture = ExtResource("14_e8xmv")
+script = ExtResource("13_n8oty")
+default_modulate = Color(0.99166447, 0.6200512, 1, 1)
+beat1_modulate = Color(0.90588236, 0.2509804, 0.70980394, 1)
+beat2_modulate = Color(0.6745098, 0.8901961, 0.1764706, 1)
+beat3_modulate = Color(0.90588236, 0.2509804, 0.70980394, 1)
+beat4_modulate = Color(0.6745098, 0.8901961, 0.1764706, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Floor" type="Parallax2D" parent="." unique_id=809829988]
+scroll_scale = Vector2(0, 0)
+
+[node name="Floor" type="TextureRect" parent="Floor" unique_id=1645791286]
+offset_top = -216.0
+offset_right = 1920.0
+offset_bottom = 864.0
+scale = Vector2(1, 1.2)
+texture = ExtResource("12_hli2a")
+metadata/_edit_use_anchors_ = true
+
+[node name="FloorBack" type="Parallax2D" parent="." unique_id=1916418100]
+scroll_scale = Vector2(0.6, 0.6)
+repeat_size = Vector2(1920, 0)
+
+[node name="FloorBack" type="TextureRect" parent="FloorBack" unique_id=136650742]
+offset_top = -33.0
+offset_right = 1920.0
+offset_bottom = 1047.0
+texture = ExtResource("18_lbh60")
+metadata/_edit_use_anchors_ = true
+
+[node name="FloorFront" type="Parallax2D" parent="." unique_id=1460260584]
+repeat_size = Vector2(1920, 0)
+
+[node name="FloorFront" type="TextureRect" parent="FloorFront" unique_id=1904486727]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("19_ls8df")
+metadata/_edit_use_anchors_ = true
+
+[node name="FarTables" type="Parallax2D" parent="." unique_id=1893821358]
+z_index = 1
+scroll_scale = Vector2(0.6, 0.6)
+repeat_size = Vector2(700, 0)
+repeat_times = 5
+
+[node name="Chairs" type="TextureRect" parent="FarTables" unique_id=189623775]
+offset_left = 545.0
+offset_top = 754.0
+offset_right = 970.0
+offset_bottom = 943.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("14_um4r3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Skewer" type="Node2D" parent="FarTables" unique_id=2131143576]
+position = Vector2(694, 888)
+script = ExtResource("7_3hk0e")
+vertical_stretch = 1.05
+skew_intensity = 0.05
+
+[node name="Table" type="TextureRect" parent="FarTables/Skewer" unique_id=1818014781]
+offset_left = -149.0
+offset_top = -134.0
+offset_right = 276.0
+offset_bottom = 55.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_oadd5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Workers2" type="Parallax2D" parent="." unique_id=1064795613]
+z_index = 1
+scroll_scale = Vector2(0.65, 0.65)
+repeat_size = Vector2(2000, 0)
+
+[node name="Throbber" type="Control" parent="Workers2" unique_id=798266161]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 702.0
+offset_top = 917.0
+offset_right = 742.0
+offset_bottom = 957.0
+script = ExtResource("3_usmkp")
+vertical_throb = 0.95
+horizontal_throb = 1.01
+
+[node name="Caterer" type="TextureRect" parent="Workers2/Throbber" unique_id=1109252736]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.625
+anchor_top = -5.1
+anchor_right = 3.625
+anchor_bottom = -5.1
+offset_top = -2.0
+offset_right = 248.0
+offset_bottom = 223.0
+scale = Vector2(-0.9, 0.9)
+texture = ExtResource("19_glx2d")
+
+[node name="Throbber2" type="Control" parent="Workers2" unique_id=337759262]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1136.0
+offset_top = 897.0
+offset_right = 1176.0
+offset_bottom = 937.0
+script = ExtResource("3_usmkp")
+vertical_throb = 0.95
+horizontal_throb = 1.01
+
+[node name="Waiter" type="TextureRect" parent="Workers2/Throbber2" unique_id=702846878]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.15
+anchor_top = -4.9
+anchor_right = -1.15
+anchor_bottom = -4.9
+offset_right = 146.0
+offset_bottom = 213.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("20_ix7xf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Workers1" type="Parallax2D" parent="." unique_id=1817956631]
+z_index = 1
+scroll_scale = Vector2(0.7, 0.7)
+repeat_size = Vector2(2300, 0)
+
+[node name="Throbber" type="Control" parent="Workers1" unique_id=1932872778]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1411.0
+offset_top = 947.0
+offset_right = 1451.0
+offset_bottom = 987.0
+script = ExtResource("3_usmkp")
+vertical_throb = 0.95
+horizontal_throb = 1.01
+
+[node name="Caterer" type="TextureRect" parent="Workers1/Throbber" unique_id=1872377868]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.1
+anchor_top = -5.65
+anchor_right = -3.1
+anchor_bottom = -5.65
+offset_right = 248.0
+offset_bottom = 225.0
+texture = ExtResource("19_glx2d")
+metadata/_edit_use_anchors_ = true
+
+[node name="Throbber2" type="Control" parent="Workers1" unique_id=1078260511]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 69.0
+offset_top = 933.0
+offset_right = 109.0
+offset_bottom = 973.0
+script = ExtResource("3_usmkp")
+vertical_throb = 0.95
+horizontal_throb = 1.01
+
+[node name="Waiter" type="TextureRect" parent="Workers1/Throbber2" unique_id=953021639]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.35
+anchor_top = -5.4
+anchor_right = -1.35
+anchor_bottom = -5.4
+offset_right = 146.0
+offset_bottom = 213.0
+texture = ExtResource("20_ix7xf")
+metadata/_edit_use_anchors_ = true
+
+[node name="NearTables" type="Parallax2D" parent="." unique_id=1900256950]
+z_index = 1
+scroll_scale = Vector2(0.75, 0.75)
+repeat_size = Vector2(875, 0)
+repeat_times = 5
+
+[node name="Chairs" type="TextureRect" parent="NearTables" unique_id=323429225]
+offset_left = -29.0
+offset_top = 764.0
+offset_right = 396.0
+offset_bottom = 953.0
+texture = ExtResource("14_um4r3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Skewer" type="Node2D" parent="NearTables" unique_id=749127183]
+position = Vector2(183, 954)
+script = ExtResource("7_3hk0e")
+vertical_stretch = 1.05
+skew_intensity = 0.05
+
+[node name="Table" type="TextureRect" parent="NearTables/Skewer" unique_id=1976826463]
+offset_left = -212.0
+offset_top = -190.0
+offset_right = 213.0
+offset_bottom = -1.0
+texture = ExtResource("13_oadd5")
+metadata/_edit_use_anchors_ = true
+
+[node name="DanceLine" type="Parallax2D" parent="." unique_id=1799712937]
+z_index = 2
+repeat_size = Vector2(388, 0)
+repeat_times = 25
+
+[node name="Green" type="TextureRect" parent="DanceLine" unique_id=1332922698]
+offset_left = 194.0
+offset_top = 967.0
+offset_right = 442.0
+offset_bottom = 1065.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("16_1jfhi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Purple" type="TextureRect" parent="DanceLine" unique_id=1985920121]
+offset_top = 967.0
+offset_right = 248.0
+offset_bottom = 1065.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("17_o28y7")
+metadata/_edit_use_anchors_ = true

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckb464u2qreiy" path="res://scripts/title.gd" id="1_mom7w"]
 [ext_resource type="Script" uid="uid://dmet47378c8bm" path="res://scripts/throbber.gd" id="1_y7k74"]
-[ext_resource type="Resource" uid="uid://scwohgp5s3a2" path="res://music/tutorial3.tres" id="2_7lgly"]
+[ext_resource type="Resource" uid="uid://scwohgp5s3a2" path="res://music/groovenotgoon3.tres" id="2_7lgly"]
 [ext_resource type="Texture2D" uid="uid://mfykfsn38td0" path="res://uiassets/dgdtitleshadow.png" id="2_kpexm"]
 [ext_resource type="Texture2D" uid="uid://b1bho2vr1im5w" path="res://uiassets/dgdtitle.png" id="3_3xoar"]
 [ext_resource type="Theme" uid="uid://c014h4lw5xkhl" path="res://uiassets/button.theme" id="3_0824t"]
@@ -19,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mom7w")
-tutorial3 = ExtResource("2_7lgly")
+title_music = ExtResource("2_7lgly")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2109649361]
 layout_mode = 0
@@ -41,7 +41,6 @@ script = ExtResource("4_nuqgq")
 stream = ExtResource("5_lx2ly")
 
 [node name="Label" type="Label" parent="PlayButton" unique_id=785267321]
-modulate = Color(0.21918201, 0.06334207, 0.068046056, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -55,6 +54,7 @@ offset_bottom = 69.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_0824t")
+theme_override_colors/font_color = Color(0.21960784, 0.0627451, 0.06666667, 1)
 text = "Play"
 
 [node name="Throbber" type="Control" parent="." unique_id=1741506303 node_paths=PackedStringArray("music_manager")]
@@ -70,6 +70,7 @@ offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y7k74")
+throb_time = 0.15
 horizontal_throb = 1.01
 music_manager = NodePath("../MusicManager")
 

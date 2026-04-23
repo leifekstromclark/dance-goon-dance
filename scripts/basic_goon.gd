@@ -5,11 +5,6 @@ var line_pos = 0
 var game: Game
 var music_manager: MusicManager
 
-@export var cooldown: int = 0
-
-var playerDistance: int = 0
-var telegraphed: bool = false
-
 enum EnemyState {SPOTTED, CHARGEHIGH, CHARGELOW, ATTACKHIGH, ATTACKLOW, NEUTRAL}
 var state: EnemyState = EnemyState.NEUTRAL
 
@@ -27,10 +22,11 @@ func _ready() -> void:
 	position = Vector2(game.real_xpos(line_pos), game.line_y)
 	music_manager.beat.connect(self._on_music_manager_beat)
 	game.falling_edge.connect(self._on_falling_edge)
+	game.rising_edge.connect(self._on_rising_edge)
 	$Throbber.music_manager = music_manager
-	goon_spell_shattered = preload("res://goons/goonspellshattered.png")
-	dead_goon_scene = preload("res://dead_goon.tscn")
-	dead_goon_texture = preload("res://goons/BaseDefeat.png")
+	goon_spell_shattered = preload("res://goons/art/goonspellshattered.png")
+	dead_goon_scene = preload("res://goons/dead_goon.tscn")
+	dead_goon_texture = preload("res://goons/art/BaseDefeat.png")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -80,18 +76,20 @@ func reset_anim() -> void:
 func _on_falling_edge() -> void:
 	var player_disp = game.get_player_line_pos() - line_pos
 	if state == EnemyState.ATTACKHIGH:
-		state = EnemyState.SPOTTED
-		if abs(player_disp) <= 1 && game.get_player_state() != Player.PlayerState.DUCK:
+		if abs(player_disp) <= 1 && game.get_player_state() != Player.State.DUCK:
 			game.hit_player()
 	elif state == EnemyState.ATTACKLOW:
-		state = EnemyState.SPOTTED
-		if abs(player_disp) <= 1 && game.get_player_state() != Player.PlayerState.JUMP:
+		if abs(player_disp) <= 1 && game.get_player_state() != Player.State.JUMP:
 			game.hit_player()
 	elif abs(player_disp) <= 2 && state == EnemyState.NEUTRAL:
 		state = EnemyState.SPOTTED
 		$Throbber/Main.animation = &"spotted"
 		$Spot.show()
 		$Spot.play()
+		
+func _on_rising_edge() -> void:
+	if state == EnemyState.ATTACKHIGH || state == EnemyState.ATTACKLOW:
+		state = EnemyState.SPOTTED
 
 func damage() -> void:
 	damaged = true

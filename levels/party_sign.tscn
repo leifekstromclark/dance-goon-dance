@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://b22j8mafcuj8m"]
+
+[ext_resource type="Script" uid="uid://cc6cxd3gnhkvw" path="res://scripts/skewer.gd" id="1_brphx"]
+[ext_resource type="Script" uid="uid://bdnuebcad5a6v" path="res://levels/party_sign.gd" id="1_vbkkg"]
+[ext_resource type="Texture2D" uid="uid://ckuvl8v541y72" path="res://levels/tutorialbg/partysignbase.png" id="2_n748t"]
+[ext_resource type="Texture2D" uid="uid://dlw4s4oydnsae" path="res://levels/tutorialbg/partysigntext.png" id="3_koohc"]
+[ext_resource type="Texture2D" uid="uid://74eb8so1hsf6" path="res://levels/tutorialbg/greenparty.png" id="4_dh8ge"]
+[ext_resource type="Script" uid="uid://dmet47378c8bm" path="res://scripts/throbber.gd" id="4_qto33"]
+[ext_resource type="Texture2D" uid="uid://d0e2honbc0ai1" path="res://levels/tutorialbg/pinkparty.png" id="5_qto33"]
+
+[node name="PartySign" type="Node2D" unique_id=180690262]
+z_index = 1
+script = ExtResource("1_vbkkg")
+
+[node name="Skewer" type="Node2D" parent="." unique_id=1969298492]
+position = Vector2(16, 946)
+script = ExtResource("1_brphx")
+vertical_stretch = 1.02
+skew_intensity = 0.02
+
+[node name="Sign" type="Sprite2D" parent="Skewer" unique_id=127072549]
+position = Vector2(11.349991, -117.54999)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_n748t")
+
+[node name="Throbber2" type="Control" parent="Skewer" unique_id=464762127]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -14.0
+offset_top = -174.0
+offset_right = 26.0
+offset_bottom = -134.0
+script = ExtResource("4_qto33")
+vertical_throb = 1.01
+horizontal_throb = 1.01
+
+[node name="Text" type="Sprite2D" parent="Skewer/Throbber2" unique_id=50792274]
+position = Vector2(25.34999, 56.450012)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_koohc")
+
+[node name="Throbber" type="Control" parent="Skewer" unique_id=266339067]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = -174.0
+offset_right = 24.0
+offset_bottom = -134.0
+script = ExtResource("4_qto33")
+
+[node name="GreenLight" type="Sprite2D" parent="Skewer/Throbber" unique_id=903278340]
+position = Vector2(0.34999084, 8.450012)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_dh8ge")
+
+[node name="PinkLight" type="Sprite2D" parent="Skewer/Throbber" unique_id=2101971934]
+position = Vector2(-3.6500092, -40.549988)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_qto33")

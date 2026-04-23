@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://qdhyabhsp1oh"]
+
+[ext_resource type="Script" uid="uid://qm03ut314mpa" path="res://scripts/gameover.gd" id="1_kctv7"]
+[ext_resource type="Theme" uid="uid://c014h4lw5xkhl" path="res://uiassets/button.theme" id="4_lh3sh"]
+[ext_resource type="Script" uid="uid://nslultul0w2n" path="res://scripts/button.gd" id="5_xmx0r"]
+[ext_resource type="AudioStream" uid="uid://df1ptro4h31fb" path="res://sounds/808Snare.mp3" id="6_y70k4"]
+
+[node name="GameOver" type="Control" unique_id=365744329]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kctv7")
+
+[node name="Label3" type="Label" parent="." unique_id=1483872320]
+layout_mode = 0
+offset_left = 579.0
+offset_top = 456.0
+offset_right = 3702.0
+offset_bottom = 865.0
+theme_override_font_sizes/font_size = 48
+text = "I swear I'll add checkpoints soon"
+
+[node name="Label2" type="Label" parent="." unique_id=1600661739]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 278.0
+offset_right = 3418.0
+offset_bottom = 687.0
+theme_override_font_sizes/font_size = 128
+text = "You Lost Your Groove."
+
+[node name="MenuButton" type="Button" parent="." unique_id=1571501807]
+layout_mode = 1
+offset_left = 854.0
+offset_top = 588.0
+offset_right = 1246.0
+offset_bottom = 798.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("4_lh3sh")
+script = ExtResource("5_xmx0r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MenuButton" unique_id=609688265]
+stream = ExtResource("6_y70k4")
+
+[node name="Label" type="Label" parent="MenuButton" unique_id=785267321]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -43.0
+offset_right = 258.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_lh3sh")
+theme_override_colors/font_color = Color(0.21960784, 0.0627451, 0.06666667, 1)
+text = "Menu"
+
+[connection signal="button_down" from="MenuButton" to="MenuButton" method="_on_button_down"]
+[connection signal="button_up" from="MenuButton" to="MenuButton" method="_on_button_up"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

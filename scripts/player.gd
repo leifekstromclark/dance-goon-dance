@@ -18,8 +18,8 @@ var dodge_sounds: Array
 var kill_sounds: Array
 
 # what action is the player currently doing? often read by other scripts
-enum PlayerState {JUMP, DUCK, ATTACK, NEUTRAL}
-var state: PlayerState = PlayerState.NEUTRAL
+enum State {JUMP, DUCK, ATTACK, NEUTRAL}
+var state: State = State.NEUTRAL
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	
 	# track and potentially end single frame animations
 	single_frame_reset_timer -= delta
-	if state != PlayerState.NEUTRAL && single_frame_reset_timer <= 0:
+	if state != State.NEUTRAL && single_frame_reset_timer <= 0:
 		reset_anim()
 	
 	# switch steps if walk animation is complete
@@ -58,14 +58,14 @@ func _process(delta: float) -> void:
 
 func dodge_up():
 	$AnimatedSprite2D.animation = &"jump"
-	state = PlayerState.JUMP
-	single_frame_reset_timer = 0.3 # purely visual
+	state = State.JUMP
+	single_frame_reset_timer = 0.3 # add functionality so this lasts at least till enemy attack is over
 	play_random_sound(dodge_sounds)
 
 func dodge_down():
 	$AnimatedSprite2D.animation = &"duck"
-	state = PlayerState.DUCK
-	single_frame_reset_timer = 0.3 # purely visual
+	state = State.DUCK
+	single_frame_reset_timer = 0.3 # add functionality so this lasts at least till enemy attack is over
 	play_random_sound(dodge_sounds)
 
 func move(dir: int) -> void:
@@ -75,7 +75,7 @@ func move(dir: int) -> void:
 	elif game.is_attackable(line_pos + dir):
 		face(dir)
 		$AnimatedSprite2D.animation = &"attack"
-		state = PlayerState.ATTACK
+		state = State.ATTACK
 		single_frame_reset_timer = 0.3 # purely visual
 		play_random_sound(kill_sounds)
 		game.hit_goon(line_pos + dir) # dunno how much I like this approach it was last minute
@@ -103,6 +103,6 @@ func reset_anim() -> void:
 # Called whenever the beginning of a beat input window occurs
 func _on_game_rising_edge() -> void:
 	# end any dodge or attack state and reset to idle pose so that the character is ready to receive a new input
-	if state != PlayerState.NEUTRAL:
-		state = PlayerState.NEUTRAL
+	if state != State.NEUTRAL:
+		state = State.NEUTRAL
 		reset_anim()

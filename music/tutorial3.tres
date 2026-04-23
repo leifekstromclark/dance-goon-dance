@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="AudioWrapper" format=3 uid="uid://scwohgp5s3a2"]
+[gd_resource type="Resource" script_class="AudioWrapper" format=3 uid="uid://dpklj106lc5b"]
 
-[ext_resource type="Script" uid="uid://c20emhcxvg3vh" path="res://scripts/audio_wrapper.gd" id="1_quat1"]
-[ext_resource type="AudioStream" uid="uid://bqk8uhyxw04qe" path="res://music/Tutorial3.wav" id="2_4wbpm"]
+[ext_resource type="Script" uid="uid://c20emhcxvg3vh" path="res://scripts/music_wrapper.gd" id="1_4wbpm"]
+[ext_resource type="AudioStream" uid="uid://diitn5sls3onm" path="res://music/newtutorial3.wav" id="2_4wbpm"]
 
 [resource]
-script = ExtResource("1_quat1")
+script = ExtResource("1_4wbpm")
 stream = ExtResource("2_4wbpm")
 bpm = 90.0
-metadata/_custom_type_script = "uid://c20emhcxvg3vh"
+key = 5

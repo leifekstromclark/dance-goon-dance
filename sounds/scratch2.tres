@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SFXWrapper" format=3 uid="uid://e6fjgktqe4wd"]
+
+[ext_resource type="Script" uid="uid://0i4lktq0scha" path="res://scripts/sfx_wrapper.gd" id="1_l0sg7"]
+[ext_resource type="AudioStream" uid="uid://cm1tw3ecrlsoe" path="res://sounds/scratch2.wav" id="2_l0sg7"]
+
+[resource]
+script = ExtResource("1_l0sg7")
+pitch_variation = 0.1
+volume_variation = 0.1
+stream = ExtResource("2_l0sg7")
+metadata/_custom_type_script = "uid://0i4lktq0scha"

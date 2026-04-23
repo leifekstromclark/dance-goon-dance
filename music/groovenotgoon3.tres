@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AudioWrapper" format=3 uid="uid://scwohgp5s3a2"]
+
+[ext_resource type="Script" uid="uid://c20emhcxvg3vh" path="res://scripts/music_wrapper.gd" id="1_6qp4h"]
+[ext_resource type="AudioStream" uid="uid://ctr02yjtxm3wl" path="res://music/groovenotgoon3.wav" id="2_wnhe6"]
+
+[resource]
+script = ExtResource("1_6qp4h")
+stream = ExtResource("2_wnhe6")
+bpm = 110.0
+key = 3
+metadata/_custom_type_script = "uid://c20emhcxvg3vh"

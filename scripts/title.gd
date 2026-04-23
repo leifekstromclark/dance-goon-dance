@@ -1,10 +1,10 @@
 extends Control
 
-@export var tutorial3: AudioWrapper
+@export var title_music: MusicWrapper
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$MusicManager.play_song(tutorial3)
+	$MusicManager.play_song(title_music)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

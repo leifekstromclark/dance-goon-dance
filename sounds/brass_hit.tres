@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SFXWrapper" format=3 uid="uid://dn072wt8xv4af"]
+
+[ext_resource type="Script" uid="uid://0i4lktq0scha" path="res://scripts/sfx_wrapper.gd" id="1_6wufg"]
+[ext_resource type="AudioStream" uid="uid://buxc3gt32r2g6" path="res://sounds/brass_hit_c.wav" id="2_my5n2"]
+
+[resource]
+script = ExtResource("1_6wufg")
+note = 3
+stream = ExtResource("2_my5n2")
+metadata/_custom_type_script = "uid://0i4lktq0scha"

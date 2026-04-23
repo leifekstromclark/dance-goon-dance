@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cpjuyio7tk46e"]
+
+[ext_resource type="Script" uid="uid://qm03ut314mpa" path="res://scripts/gameover.gd" id="1_v3ap6"]
+[ext_resource type="Theme" uid="uid://c014h4lw5xkhl" path="res://uiassets/button.theme" id="4_1s7n3"]
+[ext_resource type="Script" uid="uid://nslultul0w2n" path="res://scripts/button.gd" id="5_3is75"]
+[ext_resource type="AudioStream" uid="uid://df1ptro4h31fb" path="res://sounds/808Snare.mp3" id="6_iskvh"]
+
+[node name="GameOver" type="Control" unique_id=365744329]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v3ap6")
+
+[node name="Label3" type="Label" parent="." unique_id=1483872320]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 456.0
+offset_right = 3826.0
+offset_bottom = 865.0
+theme_override_font_sizes/font_size = 48
+text = "More levels coming soon"
+
+[node name="Label2" type="Label" parent="." unique_id=1600661739]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 268.0
+offset_right = 3813.0
+offset_bottom = 677.0
+theme_override_font_sizes/font_size = 128
+text = "You Won!"
+
+[node name="MenuButton" type="Button" parent="." unique_id=1571501807]
+layout_mode = 1
+offset_left = 854.0
+offset_top = 588.0
+offset_right = 1246.0
+offset_bottom = 798.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("4_1s7n3")
+script = ExtResource("5_3is75")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MenuButton" unique_id=609688265]
+stream = ExtResource("6_iskvh")
+
+[node name="Label" type="Label" parent="MenuButton" unique_id=785267321]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -43.0
+offset_right = 258.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_1s7n3")
+theme_override_colors/font_color = Color(0.21960784, 0.0627451, 0.06666667, 1)
+text = "Menu"
+
+[connection signal="button_down" from="MenuButton" to="MenuButton" method="_on_button_down"]
+[connection signal="button_up" from="MenuButton" to="MenuButton" method="_on_button_up"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

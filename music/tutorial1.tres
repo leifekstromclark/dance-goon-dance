@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AudioWrapper" format=3 uid="uid://dpwoxaqty0ren"]
+
+[ext_resource type="Script" uid="uid://c20emhcxvg3vh" path="res://scripts/music_wrapper.gd" id="1_q2ot0"]
+[ext_resource type="AudioStream" uid="uid://b7pxobb1lc74a" path="res://music/newtutorial1.wav" id="2_q2ot0"]
+
+[resource]
+script = ExtResource("1_q2ot0")
+stream = ExtResource("2_q2ot0")
+bpm = 90.0
+key = 5

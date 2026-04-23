@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bca8byv4pnbd0"]
+
+[ext_resource type="Script" uid="uid://cmyq4hg8wtr40" path="res://scripts/scenery.gd" id="1_2kq3j"]
+[ext_resource type="Texture2D" uid="uid://nwof3ossrsfc" path="res://levels/banquetbg/exit.png" id="2_8e8by"]
+[ext_resource type="Texture2D" uid="uid://cblfttq1ji5y" path="res://levels/banquetbg/exitfront.png" id="3_8e8by"]
+
+[node name="ExitLeft" type="Node2D" unique_id=877625189]
+script = ExtResource("1_2kq3j")
+
+[node name="Exit" type="Sprite2D" parent="." unique_id=1050659858]
+z_index = 1
+position = Vector2(-2, 432)
+scale = Vector2(-1, 1.2)
+texture = ExtResource("2_8e8by")
+
+[node name="Exitfront" type="Sprite2D" parent="." unique_id=1318930378]
+z_index = 3
+position = Vector2(-2, 432)
+scale = Vector2(-1, 1.2)
+texture = ExtResource("3_8e8by")
